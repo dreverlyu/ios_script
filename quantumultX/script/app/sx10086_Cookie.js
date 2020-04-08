@@ -7,13 +7,13 @@ const chavy = init()
 
 const requrl = $request.url
 const reqRef = $request.headers.Referer
-if ($request && $request.method != 'OPTIONS' && requrl.indexOf('h/rest/v1/sign/query') >= 0 && requrl.indexOf('mobile=') >= 0) {
+if ($request && $request.method != 'OPTIONS' && requrl.indexOf('h/rest/v1') >= 0 && requrl.indexOf('mobile=') >= 0) {
   const tokenurlVal = requrl
   const tokenheaderVal = JSON.stringify($request.headers)
   if (tokenurlVal) chavy.setdata(tokenurlVal, tokenurlKey)
   if (tokenheaderVal) chavy.setdata(tokenheaderVal, tokenheaderKey)
   title = chavy.msg(cookieName, `获取刷新链接: 成功`, ``)
-} else if ($request && $request.method != 'OPTIONS' && requrl.indexOf('h/rest/v1/sign/query') >= 0) {
+} else if ($request && $request.method != 'OPTIONS' && requrl.indexOf('checkLogin') >= 0) {
   const signurlVal = requrl
   const signheaderVal = JSON.stringify($request.headers)
   if (signurlVal) chavy.setdata(signurlVal, signurlKey)
