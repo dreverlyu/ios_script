@@ -8,7 +8,7 @@ let isGetCookie = typeof $request !== 'undefined';
 
 if (isGetCookie) {
   // 获取 Cookie
-  if ($request.headers['Cookie']) {
+  if ($request.headers['Cookie'].then(JSON.parse)) {
     var cookie = $request.headers['Cookie'];
     var userAgent = $request.headers['User-Agent'];
     $prefs.setValueForKey(cookie, userCookieKey);
