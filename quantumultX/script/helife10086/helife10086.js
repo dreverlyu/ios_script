@@ -4,7 +4,7 @@ const chen = init()
 let cookieVal = chen.getdata(cookieKey)
 sign()
 function sign() {
-    let url = {url: 'http://he.sx.chinamobile.com/h/rest/v1/sign/process',headers: { Cookie:cookieVal}}
+    let url = {url:'http://he.sx.chinamobile.com',headers: { Cookie:cookieVal}}
     url.headers['Origin'] = 'http://he.sx.chinamobile.com'
     url.headers['Connection'] = `keep-alive`
     url.headers['Content-Type'] = ` application/json;charset=utf-8`
