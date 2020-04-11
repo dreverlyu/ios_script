@@ -1,5 +1,5 @@
 const cookieName ='山西移动和生活'
-const cookieKey = 'chen_cookie_jingdong'
+const cookieKey = 'sx_cookie_10086'
 const chen = init()
 let cookieVal = chen.getdata(cookieKey)
 sign()
@@ -19,7 +19,7 @@ function sign() {
       let subTitle = ``
       let detail = ``
     
-      if (result.resultCode == 0 && result.resultMsg == '操作成功') {
+      if (result.retCode == 0 && result.retMsg == 'OK') {
         subTitle = `签到结果: 成功`
       } else if (result.resultCode == 3) {
           subTitle = `签到结果: 失败,需要重新获得cookie`

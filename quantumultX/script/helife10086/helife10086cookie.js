@@ -1,5 +1,5 @@
 const cookieName = '山西移动和生活'
-const cookieKey = 'chen_cookie_jingdong'
+const cookieKey = 'sx_cookie_10086'
 const chen = init()
 const cookieVal = $request.headers['Cookie']
 if (cookieVal) {
