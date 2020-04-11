@@ -5,7 +5,7 @@ const cookieVal = $request.headers['Cookie']
 if (cookieVal) {
   if (chen.setdata(cookieVal, cookieKey)) {
     chen.msg(`${cookieName}`, '获取Cookie: 成功', '')
-    chen.log(`[${cookieName}] 获取Cookie: 成功, cookie: ${cookieVal}`)
+    chen.log(`[${cookieName}] 获取 Cookie: 成功, cookie: ${cookieVal}`)
   }
 }
 

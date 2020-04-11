@@ -24,7 +24,7 @@ function sign() {
       } else if (result.resultCode == 3) {
           subTitle = `签到结果: 失败,需要重新获得cookie`
       } else {
-        subTitle = `签到结果: 未知`
+        subTitle = `签到结果: 未 知`
         detail = `说明: ${result.resultrMsg}`
       }
       chen.msg(title, subTitle, detail)
