@@ -38,7 +38,7 @@ if (isGetCookie) {
   $task.fetch(request).then(response => {
     const obj = JSON.parse(response.body);
     var temp = obj.data;
-    $notify(temp.cust_name+"的话费余额"+temp.PREPAY_FEE_YUAN)
+    $notify(temp.cust_name+"的话费余额","",temp.PREPAY_FEE_YUAN)
   }, reason => {
     $notify("山西移动和生活", "", reason.error)
   });
