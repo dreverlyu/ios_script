@@ -7,7 +7,7 @@ const userAgentKey = 'heLife_10086_userAgentKey';
 let isGetCookie = typeof ($request) !== 'undefined';
 if (isGetCookie) {
   // 获取 Cookie
-  if (true) {
+  if ($request.headers['Cookie']) {
     var cookie = $request.headers['Cookie'];
     var userAgent = $request.headers['User-Agent'];
     $prefs.setValueForKey(cookie, userCookieKey);
@@ -39,7 +39,7 @@ if (isGetCookie) {
   $task.fetch(request).then(response => {
     const obj = JSON.parse(response.body);
     var temp = obj.data;
-    $notify("话费余额"+temp.PREPAY_FEE_YUAN)
+    $notify(temp.cust_name+"的话费余额"+temp.PREPAY_FEE_YUAN)
   }, reason => {
     $notify("山西移动和生活", "", reason.error)
   });
