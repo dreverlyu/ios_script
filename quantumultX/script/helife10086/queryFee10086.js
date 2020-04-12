@@ -4,9 +4,7 @@ const userAgentKey = 'heLife_10086_userAgentKey';
 //const userDataKey = 'heLife_10086_userDataKey';
 
 
-let isGetCookie = typeof $request !== 'undefined';
-console.log(isGetCookie)
-console.log($request.headers['Cookie'])
+let isGetCookie = typeof ($request) !== 'undefined';
 if (isGetCookie) {
   // 获取 Cookie
   if (true) {
