@@ -1,7 +1,6 @@
 const userCheckinURL = 'http://he.sx.chinamobile.com/h/rest/v1/user/feequery';
 const userCookieKey = 'heLife_10086_userCookieKey';
 const userAgentKey = 'heLife_10086_userAgentKey';
-//const userDataKey = 'heLife_10086_userDataKey';
 
 
 let isGetCookie = typeof ($request) !== 'undefined';
