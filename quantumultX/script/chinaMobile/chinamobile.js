@@ -11,8 +11,8 @@ QX or Surge MITM = nebula.kuaishou.com
 ~~~~~~~~~~~~~~~~
 
 */
-const CookieName = '快手极速版'
-const cookieKey = 'cookie_ks'
+const CookieName = '中国移动'
+const cookieKey = 'cookie_10086'
 const sy = init()
 const cookieVal = sy.getdata(cookieKey);
 
@@ -56,15 +56,15 @@ function GetCookie() {
 function sign() {
   return new Promise((resolve, reject) => {
     let signurl = {
-      url: 'https://nebula.kuaishou.com/rest/n/nebula/sign/sign',
+      url: 'http://wap.sx.10086.cn/h/v1/sign/process',
       headers: {Cookie: cookieVal}}
-    sy.get(signurl, (error, response, data) => {
+    sy.post(signurl, (error, response, data) => {
       sy.log(`${CookieName}, data: ${data}`)
       let result = JSON.parse(data)
-      if(result.result == 10007){
-        subTitle = `签到结果: ${result.error_msg}`
+      if(result.retCode != '0000'){
+        subTitle = `签到结果: ${result.retMsg}`
         sy.msg(CookieName,subTitle,'')}
-      sy.log(`错误代码: ${result.result}, 返回信息: ${result.error_msg}`)
+      sy.log(`错误代码: ${result.retCode}, 返回信息: ${result.retMsg}`)
     })
     earn()
     info()
@@ -74,33 +74,18 @@ function sign() {
 function earn() {
   return new Promise((resolve, reject) => {
     earnurl = {
-      url: 'https://nebula.kuaishou.com/rest/n/nebula/sign/query',
+      url: 'http://wap.sx.10086.cn/h/v1/sign/process',
       headers: {Cookie: cookieVal}}
     sy.get(earnurl, (error, response, data) => {
       sy.log(`${CookieName}, data: ${data}`)
       let result = JSON.parse(data)
-      if (result.data.nebulaSignInPopup.button == '立即签到'){
-        subTitle = `签到成功: ${result.data.nebulaSignInPopup.subTitle}, ${result.data.nebulaSignInPopup.title}`
+      if (result.retCode == '0000'){
+        subTitle = '签到成功'
         resolve()
-      } else if (result.data.nebulaSignInPopup.button == '好的'){
-        detail = `重复签到: ${result.data.nebulaSignInPopup.subTitle}, ${result.data.nebulaSignInPopup.title}`
-        resolve()
-      }
-    })
-  })
-}
-function info() {
-  return new Promise((resolve, reject) => {
-    let reurl = {url:'https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview',
-      headers: {Cookie:cookieVal}}
-    sy.get(reurl, (error, response, data) =>{
-      sy.log(`${CookieName}, data: ${data}`)
-      let result = JSON.parse(data)
-      if (result.result == 1) {
-        subTitle = `现金收益: 💵${result.data.allCash}元    金币收益: 💰${result.data.totalCoin}`
+      } else if (result.retMsg == '数据异常, 请稍后再试'){
+        detail = '签到失败'
         resolve()
       }
-      sy.msg(CookieName,subTitle,detail)
     })
   })
 }
