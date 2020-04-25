@@ -1,63 +1,26 @@
-const chen = init()
-const cookieName = '中国移动签到'
-const bodyKey = 'chen_body_10086'
-const headerKey = 'chen_header_10086'
-const urlKey = 'chen_url_10086'
-if ($request.url.match(/h\/v1\/sign/)) {
-    const urlVal = $request.url
-    //const bodyVal = $request.body
-    const headerVal = JSON.stringify($request.headers)
-    const bodyVal = JSON.stringify($request.body)
-    if (urlVal) chen.setdata(urlVal, urlKey)
-    if (bodyVal) chen.setdata(bodyVal, bodyKey)
-    if (headerVal) chen.setdata(headerVal, headerKey)
-    chen.msg(`${cookieName}`, '获取Cookie: 成功 ', '')
-    chen.log(`❕${cookieName} 获取Cookie: 成功, url: ${urlVal}`)
-    chen.log(`❕ ${cookieName} 获取Cookie: 成功, body: ${bodyVal}`)
-    chen.log(`❕ ${cookieName} 获取Cookie: 成功, header: ${headerVal}`)
-}
+var headerCookie = $request.headers["Cookie"];
 
-function init() {
-    isSurge = () => {
-        return undefined === this.$httpClient ? false : true
-    }
-    isQuanX = () => {
-        return undefined === this.$task ? false : true
-    }
-    getdata = (key) => {
-        if (isSurge()) return $persistentStore.read(key)
-        if (isQuanX()) return $prefs.valueForKey(key)
-    }
-    setdata = (key, val) => {
-        if (isSurge()) return $persistentStore.write(key, val)
-        if (isQuanX()) return $prefs.setValueForKey(key, val)
-    }
-    msg = (title, subtitle, body) => {
-        if (isSurge()) $notification.post(title, subtitle, body)
-        if (isQuanX()) $notify(title, subtitle, body)
-    }
-    log = (message) => console.log(message)
-    get = (url, cb) => {
-        if (isSurge()) {
-            $httpClient.get(url, cb)
+if (headerCookie) {
+    if ($prefs.valueForKey("CookieYD") != undefined) {
+        if ($prefs.valueForKey("CookieYD") != headerCookie) {
+            if (headerCookie.indexOf("SI_FPC") != -1) {
+                var cookie = $prefs.setValueForKey(headerCookie, "CookieYD");
+                if (!cookie) {
+                    $notify("更新中移动Cookie失败‼️", "", "");
+                } else {
+                    $notify("更新中移动Cookie成功 🎉", "", "");
+                }
+            }
         }
-        if (isQuanX()) {
-            url.method = 'GET'
-            $task.fetch(url).then((resp) => cb(null, {}, resp.body))
+    } else {
+        if (headerCookie.indexOf("ph18235152070") != -1) {
+            var cookie = $prefs.setValueForKey(headerCookie, "CookieYD");
+            if (!cookie) {
+                $notify("首次写入中移动Cookie失败‼️", "", "");
+            } else {
+                $notify("首次写入中移动Cookie成功 🎉", "", "");
+            }
         }
     }
-    post = (url, cb) => {
-        if (isSurge()) {
-            $httpClient.post(url, cb)
-        }
-        if (isQuanX()) {
-            url.method = 'POST'
-            $task.fetch(url).then((resp) => cb(null, {}, resp.body))
-        }
-    }
-    done = (value = {}) => {
-        $done(value)
-    }
-    return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, done }
 }
-chen.done()
+$done({})
