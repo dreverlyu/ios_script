@@ -1,3 +1,3 @@
-## quantumultX
-## 得人之魚，不如学之漁
+### quantumultX
+得人之魚，不如学之漁
 
