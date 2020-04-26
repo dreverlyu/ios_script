@@ -9,6 +9,7 @@ if (url.indexOf(path) != -1) {
     obj.vnjoy.grade.exp = 1598430380;
     obj.vnjoy.grade.level = 1;
     obj.vnjoy.autoRenewal = 1;
+    obj.vnjoy.products = " ";
 
     obj.grade.current.exp = 1598430380;
     obj.grade.current.level = 1;
