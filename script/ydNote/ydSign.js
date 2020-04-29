@@ -1,11 +1,12 @@
-var bonus = {
+var myRequest  = {
     url: 'https://note.youdao.con/yws/api/daupromotion?method=sync',
+    method: 'post',
     headers: {
         "Cookie": $prefs.valueForKey("CookieYD"),
     }
 };
 
-$task.fetch(bonus).then(response => {
+$task.fetch(myRequest ).then(response => {
     var body = JSON.parse(response.body);
     console.log(response.body);
     if (body.accept=="true"){
