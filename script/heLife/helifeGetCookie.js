@@ -1,5 +1,5 @@
-var HE10086 = $request.headers["Cookie"];
-
+var headers = $request.headers;
+var HE10086 = headers['Cookie'] ;
 if (HE10086) {
   if ($prefs.valueForKey("CookieHeLife") != undefined) {
     if ($prefs.valueForKey("CookieHeLife") != HE10086) {
