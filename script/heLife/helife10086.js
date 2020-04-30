@@ -1,9 +1,8 @@
 var myRequest  = {
     url: 'http://he.sx.chinamobile.com/h/rest/v1/sign/process',
     method: 'post',
-    headers: {
-        "Cookie": $prefs.valueForKey('chavy_cookie_HE10086'),
-    }
+    headers: {"Cookie": $prefs.valueForKey('chavy_cookie_HE10086')},
+    body:{'channel': 'heapp'}
 };
 console.log("enter in sign")
 $task.fetch(myRequest ).then(response => {
