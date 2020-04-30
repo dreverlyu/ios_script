@@ -19,7 +19,7 @@ function sign() {
     url.headers['User-Agent'] = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 oncon(iphone;13.3.1;com.MobileCommunicationSX.iHeYueSX;1.0.4) he'
     url.headers['Accept-Language'] = 'zh-cn'
     url.headers['Content-Length'] = '19'
-    chavy.get(url, (error, response, data) => {
+    chavy.post(url, (error, response, data) => {
         let result = JSON.parse(data)
         let title = `${cookieName}`
         // 签到成功
