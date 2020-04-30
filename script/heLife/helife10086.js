@@ -12,6 +12,7 @@ function sign() {
             Cookie: cookieVal
         }
     }
+    console('Enter in sign()')
     url.headers['Origin'] = 'http://he.sx.chinamobile.com'
     url.headers['Referer'] = 'http://he.sx.chinamobile.com/h/index.html'
     url.headers['Accept'] = 'application/json, text/plain, */*'
