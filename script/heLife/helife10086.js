@@ -20,6 +20,7 @@ function sign() {
     url.headers['Accept-Language'] = 'zh-cn'
     url.headers['Content-Length'] = '19'
     chavy.post(url, (error, response, data) => {
+        console.log('response success')
         let result = JSON.parse(data)
         let title = `${cookieName}`
         // 签到成功
