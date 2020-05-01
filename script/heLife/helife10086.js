@@ -1,18 +1,34 @@
-var myRequest  = {
-    url: 'http://he.sx.chinamobile.com/h/rest/v1/sign/process',
-    method: 'post',
-    headers: {"Cookie": $prefs.valueForKey('chavy_cookie_HE10086')},
-    body:{'channel': 'heapp'}
-};
-console.log("enter in sign")
-$task.fetch(myRequest ).then(response => {
-    var body = JSON.parse(response.body);
-    console.log(response.body);
-    if (body.retMsg=="OK" && body.retCode=="0000"){
-        $notify("山西移动和生活" ,"签到成功")
-    }else{
-        $notify("山西移动和生活签到失败")
+function sign_heLife() {
+    let cookieVal = $prefs.valueForKey('glory_cookie_HE10086');
+    if (!cookieVal) {
+        //此处无意义了cookieVal
+        $notify("山西移动和生活", "无法签到", "请先获取cookie");
     }
-}, reason => {
-    $notify("山西移动和生活签到. Interface error‼️‼️‼️", "", reason.error)
-});
+    var url = {
+        url: "http://he.sx.chinamobile.com/h/rest/v1/sign/process",
+        method: 'POST',
+        headers: {
+            "Content-Type": `application/json;charset=utf-8`,
+            "User-Agent": `Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 oncon(iphone;13.3.1;com.MobileCommunicationSX.iHeYueSX;1.0.4) he`,
+            "Host": `he.sx.chinamobile.com`,
+            "Origin": `http://he.sx.chinamobile.com`,
+            "Referer": `http://he.sx.chinamobile.com/h/index.html`,
+            "Accept-Language": `zh-cn`,
+            "Accept-Encoding": `gzip, deflate`,
+            Cookie: cookieVal
+        },
+        body: {'channel': 'heapp'}
+    };
+    $task.fetch(url).then(response => {
+        var body = JSON.parse(response.body);
+        console.log(response.body);
+        if (body.retMsg == "OK" && body.retCode == "0000") {
+           $notify("山西移动和生活", "签到成功");
+        } else {
+            $notify("山西移动和生活", "签到失败", `${body.msg}`);
+        }
+    }, reason => {
+        $notify("山西移动和生活", "签到失败", `${reason.error}`);
+    })
+}
+sign_heLife();

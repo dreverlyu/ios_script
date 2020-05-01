@@ -1,13 +1,11 @@
 const cookieName = 'CookieHeLife'
-const cookieKey = 'chavy_cookie_HE10086'
-const chavy = init()
+const cookieKey = 'glory_cookie_HE10086'
+const glory = init()
 const cookieVal = $request.headers['Cookie']
 if (cookieVal) {
-  if (chavy.setdata(cookieVal, cookieKey)) {
-    chavy.msg(`${cookieName}`, '获取Cookie: 成功', '')
-    $prefs.valueForKey(cookieVal,cookieKey)
-    console.log("heLifeCookie ==>"+cookieVal)
-    chavy.log(`[${cookieName}] 获取Cookie: 成功, cookie: ${cookieVal}`)
+  if (glory.setdata(cookieVal, cookieKey)) {
+    glory.msg(`${cookieName}`, '获取Cookie: 成功', '')
+    glory.log(`[${cookieName}] 获取Cookie: 成功, cookie: ${cookieVal}`)
   }
 }
 function init() {
@@ -53,4 +51,4 @@ function init() {
   }
   return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, done }
 }
-chavy.done()
+glory.done()
