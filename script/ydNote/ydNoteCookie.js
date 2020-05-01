@@ -1,9 +1,7 @@
 /*
-you_daoNote daily bonus script
-
 Update 2020.04.28
 
-script will be performed every day at 9 am. You can modify the execution time.
+It  will update for someday.
 
 [task_local]
 

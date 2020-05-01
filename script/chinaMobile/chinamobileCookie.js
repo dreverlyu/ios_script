@@ -1,3 +1,10 @@
+/**
+ *@Author summer
+ *@Date 2020/3/28  上午 10:38
+ *@Describe github.com/dreverlyu
+ *
+ * 中国移动官方app签到
+ */
 var headerCookie = $request.headers["Cookie"];
 
 if (headerCookie) {

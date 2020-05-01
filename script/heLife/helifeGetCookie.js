@@ -1,3 +1,10 @@
+/**
+ *@Author summer
+ *@Date 2020/5/1  上午 10:36
+ *@Describe github.com/dreverlyu
+ *
+ * 山西移动和生活获取cookie,访问主页即可
+ */
 const cookieName = 'CookieHeLife'
 const cookieKey = 'glory_cookie_HE10086'
 const glory = init()

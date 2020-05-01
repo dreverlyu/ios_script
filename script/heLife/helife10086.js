@@ -1,7 +1,13 @@
+/**
+ *@Author summer
+ *@Date 2020/5/1  上午 10:36
+ *@Describe github.com/dreverlyu
+ *
+ * 山西移动和生活签到
+ */
 function sign_heLife() {
     let cookieVal = $prefs.valueForKey('glory_cookie_HE10086');
     if (!cookieVal) {
-        //此处无意义了cookieVal
         $notify("山西移动和生活", "无法签到", "请先获取cookie");
     }
     var url = {
@@ -24,9 +30,11 @@ function sign_heLife() {
         var body = JSON.parse(response.body);
         console.log(response.body);
         if (body.retMsg == "OK" && body.retCode == "0000") {
-           $notify("山西移动和生活", "签到成功");
-        } else {
-            $notify("山西移动和生活", "签到失败", `${body.msg}`);
+           $notify("山西移动和生活", "签到成功 🎉");
+        } else if (response.body.retMsg == "重复提交签到") {
+            $notify("已进行签到 ‼️", `${body.retMsg}`);
+        }else {
+            $notify("山西移动和生活", "签到失败");
         }
     }, reason => {
         $notify("山西移动和生活", "签到失败", `${reason.error}`);
