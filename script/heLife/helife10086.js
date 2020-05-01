@@ -34,7 +34,7 @@ function sign_heLife() {
         } else if (body.retMsg == "重复提交签到") {
             $notify("已进行签到 ‼️", `${body.retMsg}`);
         } else {
-            $notify("山西移动和生活", "签到失败");
+            $notify("山西移动和生活", "签到失败",`${body.retMsg}`);
         }
     }, reason => {
         $notify("山西移动和生活", "签到失败", `${reason.error}`);
