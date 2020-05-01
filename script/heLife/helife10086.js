@@ -17,8 +17,9 @@ function sign_heLife() {
             "Accept-Encoding": `gzip, deflate`,
             Cookie: cookieVal
         },
-        body: {'channel': 'heapp'}
+        body: JSON.stringify({'channel': 'heapp'})
     };
+    console.log(url)
     $task.fetch(url).then(response => {
         var body = JSON.parse(response.body);
         console.log(response.body);
