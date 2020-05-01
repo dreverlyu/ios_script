@@ -5,6 +5,7 @@
  *
  * 中国移动官方app获取cookie(移动山西省归属地专用)
  * 需访问移动APP,手动进入签到，并登陆获取鉴权cookie
+ * ^http:\/\/wap\.sx\.10086\.cn\/h\/rest\/v1\/sign\/query$ url script-request-body dreverlyu/script/chinaMobile/chinamobileCookie.js
  */
 
 const cookieName = 'CookieChinaMobileApp'
