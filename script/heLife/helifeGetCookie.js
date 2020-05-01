@@ -3,6 +3,13 @@
  *@Date 2020/5/1  上午 10:36
  *@Describe github.com/dreverlyu
  *
+ *[task_local]
+ * # 山西移动app签到
+ * 09  * * * dreverlyu/script/heLife/helife10086.js
+ * [rewrite_local]
+ * # Get Cookie
+ * ^http:\/\/he\.sx\.chinamobile\.com\/h\/rest\/v1\/user\/* url script-request-body dreverlyu/script/heLife/helifeGetCookie.js
+ * # MITM = he.sx.chinamobile.com
  * 山西移动和生活获取cookie,访问主页即可
  */
 const cookieName = 'CookieHeLife'
