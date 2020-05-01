@@ -4,6 +4,7 @@
  *@Describe github.com/dreverlyu
  *
  * 中国移动官方app获取cookie(移动山西省归属地专用)
+ * 需访问移动APP,手动进入签到，并登陆获取鉴权cookie
  */
 
 const cookieName = 'CookieChinaMobileApp'

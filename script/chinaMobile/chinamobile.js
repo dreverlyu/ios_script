@@ -34,7 +34,7 @@ function sign_ChinaMobile() {
     if (body.retMsg == "OK" && body.retCode == "0000") {
       $notify("中国移动官方App", "签到成功 🎉");
     } else if (body.retMsg == "重复提交签到") {
-      $notify("已进行签到 ‼️", `${body.retMsg}`);
+      $notify("已进行签到 ‼️");
     } else {
       $notify("中国移动官方App", "签到失败",`${body.retMsg}`);
     }

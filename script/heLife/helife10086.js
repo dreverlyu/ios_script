@@ -32,7 +32,7 @@ function sign_heLife() {
         if (body.retMsg == "OK" && body.retCode == "0000") {
             $notify("山西移动和生活", "签到成功 🎉");
         } else if (body.retMsg == "重复提交签到") {
-            $notify("已进行签到 ‼️", `${body.retMsg}`);
+            $notify("已进行签到 ‼️");
         } else {
             $notify("山西移动和生活", "签到失败",`${body.retMsg}`);
         }
