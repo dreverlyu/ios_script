@@ -13,7 +13,7 @@ function sign_ChinaMobile() {
     $notify("中国移动官方App", "无法签到", "请先获取cookie");
   }
   var url = {
-    url: "http://wap.sx.10086.cn/h/v1/sign/process",
+    url: "http://wap.sx.10086.cn/h/rest/v1/sign/process",
     method: 'POST',
     headers: {
       "Content-Type": `application/json;charset=utf-8`,
@@ -27,7 +27,7 @@ function sign_ChinaMobile() {
     },
     body: JSON.stringify({'channel': 'wt'})
   };
-  console.log(url)
+
   $task.fetch(url).then(response => {
     var body = JSON.parse(response.body);
     console.log(response.body);

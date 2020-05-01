@@ -25,7 +25,7 @@ function sign_heLife() {
         },
         body: JSON.stringify({'channel': 'heapp'})
     };
-    console.log(url)
+    //console.log(url)
     $task.fetch(url).then(response => {
         var body = JSON.parse(response.body);
         console.log(response.body);
