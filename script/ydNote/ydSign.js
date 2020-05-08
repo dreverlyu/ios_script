@@ -1,3 +1,4 @@
+// 签到已无意义
 var myRequest  = {
     url: 'https://note.youdao.con/yws/api/daupromotion?method=sync',
     method: 'post',
