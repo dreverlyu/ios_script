@@ -20,7 +20,7 @@ const signInfo = {}
 sign()
 
 function loginApp(cb) {
-    console.log('tokenUrlVal'+tokenUrlVal,'header'+headers)
+    console.log('tokenUrlVal'+tokenUrlVal,'header'+tokenHeaderVal)
     const url = { url: tokenUrlVal, headers: JSON.parse(tokenHeaderVal) }
     glory.get(url, (error, response, data) => {
         const respcookie = response.headers['Set-Cookie']
