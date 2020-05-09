@@ -20,15 +20,18 @@ const signInfo = {}
 sign()
 
 function loginApp(cb) {
+    console.log('tokenUrlVal'+tokenUrlVal,'header'+headers)
     const url = { url: tokenUrlVal, headers: JSON.parse(tokenHeaderVal) }
     glory.get(url, (error, response, data) => {
         const respcookie = response.headers['Set-Cookie']
+        console.log('respcookie:'+respcookie)
         glory.log(`${cookieName}, loginApp - respcookie: ${respcookie}`)
         if (respcookie && respcookie.indexOf('jsession_id_4_boss=') >= 0) {
             const signheaderObj = JSON.parse(signHeaderVal)
             let signcookie = signheaderObj['Cookie']
             signcookie = signcookie.concat(/jsession_id_4_boss=([^;]*)/)
             signheaderObj['Cookie'] = signcookie
+            console.log('signcookie'+signheaderObj);
             signHeaderVal = JSON.stringify(signheaderObj)
         }
         cb()
