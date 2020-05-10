@@ -47,8 +47,7 @@ function sign() {
             let subTitle = ``
             let detail = ``
             if (result.retCode == '0000'|| result.receiveInfo.signCount > 0 ) {
-                subTitle = `签到结果: 成功 🎉 `
-                detail =`签到天数: ${result.receiveInfo.signCount} 天 🌿`
+                subTitle = `签到结果: 成功 🎉 签到: ${result.receiveInfo.signCount} 天 🌿`
             } else if (result.retMsg == '重复提交签到' ) {
                 subTitle = `签到结果: 成功 (重复签到) 🌱 `
             } else {
