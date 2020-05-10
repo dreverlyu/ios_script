@@ -22,7 +22,7 @@ const glory = init()
 
 const reqUrl = $request.url
 const reqRef = $request.headers.Referer
-if ($request && $request.method != 'OPTIONS' && reqUrl.indexOf('v1/businessTree/adInfoQry') >= 0) {
+if ($request && $request.method != 'OPTIONS' && reqUrl.indexOf('h/v1/businessTree/adInfoQry') >= 0) {
   const tokenUrlVal = reqUrl
   const tokenHeaderVal = JSON.stringify($request.headers)
   if (tokenUrlVal) glory.setdata(tokenUrlVal, sxTokenUrlKey)
