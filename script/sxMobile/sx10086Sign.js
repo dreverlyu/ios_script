@@ -24,15 +24,14 @@ function loginApp(cb) {
     const url = { url: tokenUrlVal, headers: JSON.parse(tokenHeaderVal), body:JSON.stringify({'appId': '116'})}
     glory.post(url, (error, response, data) => {
         const respCookie = response.headers['Set-Cookie']
-        console.log('respCookie:'+respCookie)
+        console.log('login respCookie:'+respCookie)
         glory.log(`${cookieName}, loginApp - respcookie: ${respCookie}`)
         if (respCookie && respCookie.indexOf('jsession_id_4_boss=') >= 0) {
             const signHeaderObj = JSON.parse(signHeaderVal)
             let signCookie = signHeaderObj['Cookie']
-            console.log('******'+signCookie)
+            console.log('登录cookie==>'+signCookie)
             signCookie = signCookie.concat(/jsession_id_4_boss=([^;]*)/)
             signHeaderObj['Cookie'] = signCookie
-            console.log('signCookie'+signHeaderObj);
             signHeaderVal = JSON.stringify(signHeaderObj)
         }
         cb()
@@ -48,9 +47,10 @@ function sign() {
             let subTitle = ``
             let detail = ``
             if (result.retCode == '0000') {
-                subTitle = `签到结果: 成功`
+                subTitle = `签到结果: 成功 🎉 `
+                detail =`签到天数: ${result.receiveInfo.signCount} 天 🌿`
             } else if (result.retMsg == '重复提交签到' ) {
-                subTitle = `签到结果: 成功 (重复签到)`
+                subTitle = `签到结果: 成功 (重复签到) 🌱 `
             } else {
                 subTitle = `签到结果: 失败`
             }

@@ -7,8 +7,9 @@
  * # 山西移动app签到
  * 09  * * * dreverlyu/script/heLife/helife10086.js
  * [rewrite_local]
- * # Get Cookie
- * ^http:\/\/he\.sx\.chinamobile\.com\/h\/rest\/v1\/user\/* url script-request-body dreverlyu/script/sx10086/sx10086Cookie.js
+ * # Get Cookie 两条语句
+ * ^http:\/\/he\.sx\.chinamobile\.com\/h\/rest\/v1\/businessTree\/adInfoQry url script-request-header dreverlyu/script/sxMobile/sx10086Cookie.js
+ * ^http:\/\/he\.sx\.chinamobile\.com\/h\/rest\/v1\/sign\/* url script-request-body dreverlyu/script/sxMobile/sx10086Cookie.js
  * # MITM = he.sx.chinamobile.com
  * 山西移动和生活获取cookie,访问主页即可,因为双重登录，需验证token
  */
