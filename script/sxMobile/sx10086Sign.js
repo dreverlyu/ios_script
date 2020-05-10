@@ -46,11 +46,11 @@ function sign() {
             const result = JSON.parse(data)
             let subTitle = ``
             let detail = ``
-            if (result.retCode == '0000') {
+            if (result.retCode == '0000'|| result.receiveInfo.signCount > 0 ) {
                 subTitle = `签到结果: 成功 🎉 `
-            } else if (result.retMsg == '重复提交签到' || result.receiveInfo.retCode == '0000') {
-                subTitle = `签到结果: 成功 (重复签到) 🌱 `
                 detail =`签到天数: ${result.receiveInfo.signCount} 天 🌿`
+            } else if (result.retMsg == '重复提交签到' ) {
+                subTitle = `签到结果: 成功 (重复签到) 🌱 `
             } else {
                 subTitle = `签到结果: 失败`
             }
