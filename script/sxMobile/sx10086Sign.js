@@ -23,16 +23,17 @@ function loginApp(cb) {
     console.log('tokenUrlVal'+tokenUrlVal,'header'+tokenHeaderVal)
     const url = { url: tokenUrlVal, headers: JSON.parse(tokenHeaderVal), body:JSON.stringify({'appId': '116'})}
     glory.post(url, (error, response, data) => {
-        const respcookie = response.headers['Set-Cookie']
-        console.log('respcookie:'+respcookie)
-        glory.log(`${cookieName}, loginApp - respcookie: ${respcookie}`)
-        if (respcookie && respcookie.indexOf('jsession_id_4_boss=') >= 0) {
-            const signheaderObj = JSON.parse(signHeaderVal)
-            let signcookie = signheaderObj['Cookie']
-            signcookie = signcookie.concat(/jsession_id_4_boss=([^;]*)/)
-            signheaderObj['Cookie'] = signcookie
-            console.log('signcookie'+signheaderObj);
-            signHeaderVal = JSON.stringify(signheaderObj)
+        const respCookie = response.headers['Set-Cookie']
+        console.log('respCookie:'+respCookie)
+        glory.log(`${cookieName}, loginApp - respcookie: ${respCookie}`)
+        if (respCookie && respCookie.indexOf('jsession_id_4_boss=') >= 0) {
+            const signHeaderObj = JSON.parse(signHeaderVal)
+            let signCookie = signHeaderObj['Cookie']
+            console.log('******'+signCookie)
+            signCookie = signCookie.concat(/jsession_id_4_boss=([^;]*)/)
+            signHeaderObj['Cookie'] = signCookie
+            console.log('signCookie'+signHeaderObj);
+            signHeaderVal = JSON.stringify(signHeaderObj)
         }
         cb()
     })
@@ -40,8 +41,8 @@ function loginApp(cb) {
 
 function sign() {
     loginApp(() => {
-        const url = { url: signUrlVal, headers: JSON.parse(signHeaderVal) }
-        glory.get(url, (error, response, data) => {
+        const url = { url: signUrlVal, headers: JSON.parse(signHeaderVal) , body: JSON.stringify({'channel': 'heapp'})}
+        glory.post(url, (error, response, data) => {
             glory.log(`${cookieName}, data: ${data}`)
             const result = JSON.parse(data)
             let subTitle = ``
