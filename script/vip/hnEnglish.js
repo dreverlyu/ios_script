@@ -4,7 +4,7 @@
  *@Describe github.com/dreverlyu
  *
  *[rewrite_local]👇
- * ^https:\/\/engapi\.ihuman\.com\/(v1\/get_user_info|v1\/get_products) url script-response-body
+ * ^https:\/\/engapi\.ihuman\.com\/(v1\/get_user_info|v1\/get_products) url script-response-body dreverlyu/script/vip/hnEnglish.js
  *
  * MITM = engapi.ihuman.com
  */
