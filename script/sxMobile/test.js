@@ -7,6 +7,9 @@
  */
 
 //http://wap.sx.10086.cn/h/v1/sign/process  result.retCode == '0000'
+
+var time = new Date().getTime();
+
 function sign_ChinaMobile() {
     var url = {
         url: "http://he.sx.chinamobile.com/h/rest/v1/businessTree/adInfoQry",
@@ -28,6 +31,7 @@ function sign_ChinaMobile() {
     $task.fetch(url).then(response => {
         var body = JSON.parse(response.body);
         console.log(response.body);
+        console.log(time);
         }, reason => {
         $notify("山西移动", "测试失败", `${reason.error}`);
     })
