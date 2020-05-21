@@ -26,13 +26,12 @@ const url = 'http://221.204.170.88:8184/app/learnRecord';
 const method = 'POST';
 var startTime = new Date().getTime();
 var endTime = startTime + 1808 ;
-const body = '{"watchTime": "1808",,"appStartTime":'+startTime+',"type":"1","userId":"2536713","appEndTime":'+endTime+'}';
 
 const myRequest = {
     url: url,
     method: method,
     headers: taskHeaderVal,
-    body: body
+    body: JSON.stringify({"watchTime": "1808","appStartTime":startTime,"type":"1","userId":"2536713","appEndTime":endTime})
 };
 
 remote()
