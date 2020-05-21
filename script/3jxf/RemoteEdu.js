@@ -24,8 +24,8 @@ const taskHeaderVal =
 };
 const url = 'http://221.204.170.88:8184/app/learnRecord';
 const method = 'POST';
-var startTime = new Date().getTime();
-var endTime = startTime + 1808 ;
+const startTime = new Date().getTime();
+const endTime = startTime + 1808 ;
 
 const myRequest = {
     url: url,
@@ -34,16 +34,13 @@ const myRequest = {
     body: JSON.stringify({"watchTime": "1808","appStartTime":startTime,"type":"1","userId":"2536713","appEndTime":endTime})
 };
 
-remote()
-function remote() {
-    $task.fetch(myRequest).then(response => {
 
-        console.log(response.body.message + "\n\n" + response.body.success == "true" ? "success": "failed" )
+$task.fetch(myRequest).then(response => {
+    console.log(myRequest)
+    console.log(response.body.message + "\n\n" + response.body.success == "true" ? "success": "failed" )
     }, reason => {
         console.log(reason.error);
     });
-
-}
 
 function init() {
     isSurge = () => {
