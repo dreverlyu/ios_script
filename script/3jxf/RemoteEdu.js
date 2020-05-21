@@ -25,7 +25,7 @@ const taskHeaderVal =
 const url = 'http://221.204.170.88:8184/app/learnRecord';
 const method = 'POST';
 const startTime = endTime -1808 ;
-const endTime = new Date().getTime() - 188 ;
+const endTime = new Date().getTime() - 188  ;
 
 const myRequest = {
     url: url,
