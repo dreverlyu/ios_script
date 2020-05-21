@@ -16,7 +16,8 @@ const taskHeaderVal = glory.getdata(taskHeaderKey)
 const url = 'http://221.204.170.88:8184/app/learnRecord';
 const method = 'POST';
 var startTime = new Date().getTime();
-const body = '{"watchTime": "1808",,"appStartTime":'+startTime+',"type":"1","userId":"2536713","appEndTime":'+startTime-1808+'}';
+var endTime = startTime + 1808 ;
+const body = '{"watchTime": "1808",,"appStartTime":'+startTime+',"type":"1","userId":"2536713","appEndTime":'+endTime+'}';
 
 const myRequest = {
     url: url,
@@ -28,7 +29,8 @@ const myRequest = {
 remote()
 function remote() {
     $task.fetch(myRequest).then(response => {
-        console.log(response.statusCode + "\n\n" + response.body);
+
+        console.log(response.body.message + "\n\n" + response.body.success == "true" ? "success": "failed" )
     }, reason => {
         console.log(reason.error);
     });
