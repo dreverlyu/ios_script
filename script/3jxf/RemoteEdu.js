@@ -12,8 +12,7 @@
 const appName ='三晋先锋'
 const glory = init()
 const taskHeaderKey = 'glory_header_3jxf'
-const taskHeaderVal =
-    {
+const taskHeaderVal = {
     'Accept' : '*/*',
     'Accept-Encoding' : 'gzip, deflate',
     'Connection' : 'close',
