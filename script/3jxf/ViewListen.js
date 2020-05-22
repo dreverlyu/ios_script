@@ -22,7 +22,7 @@ const myRequest = {
     url: url,
     method: method,
     headers: taskHeaderVal,
-    body: JSON.stringify({"watchTime": "608","appStartTime":startTime,"type":"0","userId":"2536713","appEndTime":endTime})
+    body: JSON.stringify({"watchTime": "608","appStartTime":startTime.toString(),"type":"0","userId":"2536713","appEndTime":endTime.toString()})
 };
 
 
