@@ -24,7 +24,7 @@ const headers = {
     'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmVUaW1lIjoxNTkwMTQzMjc3OTU3LCJ1c2VyQ29kZSI6MjUzNjcxMywiYWNjb3VudCI6IjE4MjM1MTUyMDcwIiwiYWNjb3VudFR5cGUiOjF9.a1u7bis0y0TIwktBsrLNIAlMZInWTgN4tcgxl6oj_uY',
     'Accept-Language' : 'zh-Hans-CN;q=1, zh-Hant-HK;q=0.9, en-CN;q=0.8'
 };
-const body = '{"appEndTime":'+appEndTime.toString()+',"appStartTime":'+appStartTime.toString()+',"type":"1","time":"38","articleId":'+articleId.toString()+'}';
+const body = JSON.stringify('{"appEndTime":'+appEndTime.toString()+',"appStartTime":'+appStartTime.toString()+',"type":"1","time":"38","articleId":'+articleId.toString()+'}');
 
 const myRequest = {
     url: url,
