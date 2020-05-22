@@ -17,6 +17,7 @@ const taskHeaderVal = {
     'Accept-Encoding' : 'gzip, deflate',
     'Connection' : 'close',
     'Host' : '221.204.170.88:8184',
+    'Content-Type' : 'application/json',
     'User-Agent' : 'san jin xian feng/3.2.7 (iPhone; iOS 13.3.1; Scale/3.00)',
     'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmVUaW1lIjoxNTkwMTI2OTUyMDE1LCJ1c2VyQ29kZSI6MjUzNjcxMywiYWNjb3VudCI6IjE4MjM1MTUyMDcwIiwiYWNjb3VudFR5cGUiOjF9.Bs_L8DhHXUb5MZJRqMcWMDOJZp_4Tf6dDRpAki_Ffuc',
     'Accept-Language' : 'zh-Hans-CN;q=1, zh-Hant-HK;q=0.9, en-CN;q=0.8'
