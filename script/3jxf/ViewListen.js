@@ -12,25 +12,17 @@
 const appName ='三晋先锋'
 const glory = init()
 const taskHeaderKey = 'glory_header_3jxf'
-const taskHeaderVal = {
-    'Accept' : '*/*',
-    'Accept-Encoding' : 'gzip, deflate',
-    'Connection' : 'close',
-    'Host' : '221.204.170.88:8184',
-    'User-Agent' : 'san jin xian feng/3.2.7 (iPhone; iOS 13.3.1; Scale/3.00)',
-    'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmVUaW1lIjoxNTkwMTI2OTUyMDE1LCJ1c2VyQ29kZSI6MjUzNjcxMywiYWNjb3VudCI6IjE4MjM1MTUyMDcwIiwiYWNjb3VudFR5cGUiOjF9.Bs_L8DhHXUb5MZJRqMcWMDOJZp_4Tf6dDRpAki_Ffuc',
-    'Accept-Language' : 'zh-Hans-CN;q=1, zh-Hant-HK;q=0.9, en-CN;q=0.8'
-};
+const taskHeaderVal = glory.getdata(taskHeaderKey);
 const url = 'http://221.204.170.88:8184/app/learnRecord';
 const method = 'POST';
 const endTime = new Date().getTime()/1000;
-const startTime = endTime - 1808;
+const startTime = endTime - 608;
 
 const myRequest = {
     url: url,
     method: method,
     headers: taskHeaderVal,
-    body: JSON.stringify({"watchTime": "1808","appStartTime":startTime,"type":"1","userId":"2536713","appEndTime":endTime})
+    body: JSON.stringify({"watchTime": "608","appStartTime":startTime,"type":"0","userId":"2536713","appEndTime":endTime})
 };
 
 
