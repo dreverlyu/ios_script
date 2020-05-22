@@ -9,7 +9,7 @@
  *
  */
 
-const appEndTime = parseInt(new Date().getTime());
+const appEndTime = parseInt(new Date().getTime()/1000);
 const appStartTime = appEndTime -38 ;
 const articleId = Math.floor(Math.random()*10+1);
 const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=1&time=38&articleId='+articleId.toString()+'&appStartTime='+appStartTime.toString();
