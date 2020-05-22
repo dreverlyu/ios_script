@@ -13,13 +13,13 @@ const uniqueId = defaultUniqueId + Math.floor(Math.random()*1000+1);
 const loveBody = JSON.stringify({"type":"1","userId":"2536713","uniqueId":uniqueId.toString()});
 const collectBody = JSON.stringify({"type":"1","userId":"2536713","uniqueId":uniqueId.toString()});
 const loveRequest = {
-    url: url,
+    url: loveUrl,
     method: method,
     headers: loveHeaderVal,
     body: loveBody
 };
 const collectRequest = {
-    url: url,
+    url: collectUrl,
     method: method,
     headers: loveHeaderVal,
     body: collectBody
