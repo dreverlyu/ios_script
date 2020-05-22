@@ -36,7 +36,7 @@ $task.fetch(loveRequest).then(response => {
     console.log(reason.error);
 });
 
-$task.fetch(collectBody).then(response => {
+$task.fetch(collectRequest).then(response => {
     console.log(body)
     if (response.body.message == "收藏成功"){
         $notify(appName,"点赞成功","文章编号"+uniqueId);
