@@ -23,14 +23,14 @@ const taskHeaderVal = {
 };
 const url = 'http://221.204.170.88:8184/app/learnRecord';
 const method = 'POST';
-const endTime = new Date().getTime()/1000;
+const endTime = parseInt(new Date().getTime()/1000);
 const startTime = endTime - 1808;
 
 const myRequest = {
     url: url,
     method: method,
     headers: taskHeaderVal,
-    body: JSON.stringify({"watchTime": "1808","appStartTime":startTime,"type":"1","userId":"2536713","appEndTime":endTime})
+    body: JSON.stringify({"watchTime": "1808","appStartTime":startTime.toString(),"type":"1","userId":"2536713","appEndTime":endTime.toString()})
 };
 
 
