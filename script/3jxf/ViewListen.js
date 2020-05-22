@@ -28,6 +28,7 @@ const myRequest = {
 
 $task.fetch(myRequest).then(response => {
     console.log(myRequest)
+    console.log(response.body)
     console.log(response.body.message + "\n\n" + response.body.success == "true" ? "success": "failed" )
     }, reason => {
         console.log(reason.error);
