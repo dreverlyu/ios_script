@@ -15,7 +15,7 @@ const taskHeaderKey = 'glory_header_3jxf'
 const taskHeaderVal = glory.getdata(taskHeaderKey);
 const url = 'http://221.204.170.88:8184/app/learnRecord';
 const method = 'POST';
-const endTime = Date.parse(new Date().getTime()/1000);
+const endTime = parseInt(new Date().getTime()/1000);
 const startTime = endTime - 608;
 
 const myRequest = {
