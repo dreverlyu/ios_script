@@ -35,8 +35,8 @@ const myRequest = {
 
 
 $task.fetch(myRequest).then(response => {
-    console.log(myRequest)
-    console.log(response.body.message + "\n\n" + response.body.success == "true" ? "success": "failed" )
+    console.log(response.body)
+    $notify(appName +"试听学习", response.body.code == 0 ? "success 🎉 ":"failed")
     }, reason => {
         console.log(reason.error);
     });
