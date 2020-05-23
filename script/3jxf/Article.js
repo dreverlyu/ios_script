@@ -34,8 +34,10 @@ const myRequest = {
 };
 
 $task.fetch(myRequest).then(response => {
-    console.log(body)
-    console.log(response.body.code == 0 ? "阅读文章"+response.body.data: "阅读失败！！" );
+    console.log(response.body)
+    var body = JSON.parse(response.body);
+    if(body.msg == "请求成功"){
+    $notify("三晋先锋","阅读文章🌱",body.data)} 
 }, reason => {
     console.log(reason.error);
 });

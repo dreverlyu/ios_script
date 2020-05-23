@@ -13,10 +13,10 @@ const appName ='三晋先锋'
 const glory = init()
 const taskHeaderKey = 'glory_header_3jxf'
 const taskHeaderVal = glory.getdata(taskHeaderKey);
-const url = 'http://221.204.170.88:8184/app/learnRecord';
+const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime';
 const method = 'POST';
 const endTime = parseInt(new Date().getTime()/1000);
-const startTime = endTime - 608;
+const startTime = endTime - 652 ;
 
 const myRequest = {
     url: url,
@@ -31,13 +31,14 @@ const myRequest = {
         'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmVUaW1lIjoxNTkwMTI2OTUyMDE1LCJ1c2VyQ29kZSI6MjUzNjcxMywiYWNjb3VudCI6IjE4MjM1MTUyMDcwIiwiYWNjb3VudFR5cGUiOjF9.Bs_L8DhHXUb5MZJRqMcWMDOJZp_4Tf6dDRpAki_Ffuc',
         'Accept-Language' : 'zh-Hans-CN;q=1, zh-Hant-HK;q=0.9, en-CN;q=0.8'
     },
-    body: JSON.stringify({"watchTime": "608","appStartTime":startTime.toString(),"type":"0","userId":"2536713","appEndTime":endTime.toString()})
+    body: JSON.stringify({"time": "652","articleId":"14","userId":"2536713","appEndTime":startTime.toString(),"appEndTime":endTime.toString()})
 };
 
 
 $task.fetch(myRequest).then(response => {
     console.log(response.body)
-    $notify(appName +"试听学习", response.body.message + ' 🎉 ', response.body.success)
+    var body = JSON.parse(response.body);
+    $notify(appName,"视听学习", body.msg+' 🎉 ')
     }, reason => {
         console.log(reason.error);
     });
