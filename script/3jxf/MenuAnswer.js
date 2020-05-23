@@ -3,7 +3,7 @@
  *@Date 2020/5/23  下午 09:24
  *@Describe github.com/dreverlyu
  */
-const appName ='三晋先锋'
+const appName ='3JXF'
 const glory = init()
 const answerHeaderKey = 'glory_header_answer'
 const answerHeaderVal = glory.getdata(answerHeaderKey);
@@ -13,7 +13,7 @@ const body = JSON.stringify({"userId":"2536713","method":1,"totalGrade":"90","li
 const answerRequest = {
     url: url,
     method: method,
-    headers: answerHeaderVal,
+    headers: {},
     body: body
 };
 

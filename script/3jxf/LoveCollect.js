@@ -3,7 +3,7 @@
  *@Date 2020/5/22   下午 06:19
  *@Describe github.com/dreverlyu
  */
-const appName = "三晋先锋"
+const appName = "3JXF"
 const glory = init()
 const loveUrl = 'http://221.204.170.88:8184/app/love';
 const collectUrl = 'http://221.204.170.88:8184/app/collect';

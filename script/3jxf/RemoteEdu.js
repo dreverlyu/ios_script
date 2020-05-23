@@ -9,7 +9,7 @@
  *
  */
 
-const appName ='三晋先锋'
+const appName ='3JXF'
 const glory = init()
 const taskHeaderKey = 'glory_header_3jxf'
 const url = 'http://221.204.170.88:8184/app/learnRecord';

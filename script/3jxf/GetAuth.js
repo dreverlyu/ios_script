@@ -4,7 +4,7 @@
  *@Describe github.com/dreverlyu
  */
 
-const appName = '三晋先锋'
+const appName = '3JXF'
 const taskHeaderKey = 'glory_header_3jxf'
 const loveHeaderKey = 'glory_header_3jLove'
 const answerHeaderKey = 'glory_header_answer'

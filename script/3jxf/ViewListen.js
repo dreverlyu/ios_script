@@ -9,7 +9,7 @@
  *
  */
 
-const appName ='三晋先锋'
+const appName ='3JXF'
 const glory = init()
 const taskHeaderKey = 'glory_header_3jxf'
 const taskHeaderVal = glory.getdata(taskHeaderKey);
