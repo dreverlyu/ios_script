@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Template to compose HTTP reqeuest.
+ * @fileoverview  Template to compose HTTP reqeuest.
  *
  */
 

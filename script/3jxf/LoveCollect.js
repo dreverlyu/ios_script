@@ -1,6 +1,6 @@
 /**
  *@Author Drever
- *@Date 2020/5/22  下午 06:19
+ *@Date 2020/5/22   下午 06:19
  *@Describe github.com/dreverlyu
  */
 const appName = "三晋先锋"
