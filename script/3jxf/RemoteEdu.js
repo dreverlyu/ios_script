@@ -36,7 +36,7 @@ const myRequest = {
 
 $task.fetch(myRequest).then(response => {
     console.log(response.body)
-    $notify(appName +"远程教育",  response.body.message + ' 🎉 ', response.body.success)
+    $notify(appName +"远程教育",  response.body.toStribg().message + ' 🎉 ', response.body.toString().success)
     }, reason => {
         console.log(reason.error);
     });
