@@ -11,7 +11,7 @@
 
 const appEndTime = parseInt(new Date().getTime()/1000);
 const appStartTime = appEndTime -38 ;
-const articleId = Math.floor(Math.random()*10+1);
+const articleId = 1836000 + Math.floor(Math.random()*500+1);
 const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=1&time=38&articleId='+articleId.toString()+'&appStartTime='+appStartTime.toString();
 const method = 'POST';
 const headers = {
@@ -37,7 +37,7 @@ $task.fetch(myRequest).then(response => {
     console.log(response.body)
     var body = JSON.parse(response.body);
     if(body.msg == "请求成功"){
-    $notify("三晋先锋","阅读文章🌱",body.data)} 
+    $notify("三晋先锋","阅读文章🌱文章编号"+articleId, body.data)} 
 }, reason => {
     console.log(reason.error);
 });
