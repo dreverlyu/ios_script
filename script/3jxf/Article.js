@@ -37,7 +37,7 @@ $task.fetch(myRequest).then(response => {
     console.log(response.body)
     var body = JSON.parse(response.body);
     if(body.msg == "请求成功"){
-    $notify("三晋先锋","阅读文章🌱文章编号"+articleId, body.data)} 
+    $notify("三晋先锋","阅读🌱文章编号"+articleId, body.data)} 
 }, reason => {
     console.log(reason.error);
 });
