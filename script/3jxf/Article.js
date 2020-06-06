@@ -33,10 +33,10 @@ const myRequest = {
     body: body
 };
 
-var count = 0;
+//var count = 0;
 
 //每两秒执行一次，阅读两次文章后就退出
-var readTask = setInterval(() =>{
+// var readTask = setInterval(() =>{
     $task.fetch(myRequest).then(response => {
         console.log(response.body)
         var body = JSON.parse(response.body);
@@ -46,9 +46,9 @@ var readTask = setInterval(() =>{
     }, reason => {
         console.log(reason.error);
     });
-    if (count >=4){
-        clearInterval(readTask);
-    }
-},2000);
+//     if (count >=4){
+//         clearInterval(readTask);
+//     }
+// },2000);
 
 
