@@ -33,11 +33,22 @@ const myRequest = {
     body: body
 };
 
-$task.fetch(myRequest).then(response => {
-    console.log(response.body)
-    var body = JSON.parse(response.body);
-    if(body.msg == "请求成功"){
-    $notify("三晋先锋","阅读🌱文章编号"+articleId, body.data)} 
-}, reason => {
-    console.log(reason.error);
-});
+var count = 0;
+
+//每两秒执行一次，阅读两次文章后就退出
+var readTask = setInterval(() =>{
+    $task.fetch(myRequest).then(response => {
+        console.log(response.body)
+        var body = JSON.parse(response.body);
+        if(body.msg == "请求成功"){
+            $notify("三晋先锋","阅读🌱文章编号"+articleId, body.data)}
+        count +=2;
+    }, reason => {
+        console.log(reason.error);
+    });
+    if (count >=4){
+        clearInterval(readTask);
+    }
+},2000);
+
+
