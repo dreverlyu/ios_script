@@ -41,7 +41,7 @@ const myRequest = {
         console.log(response.body)
         var body = JSON.parse(response.body);
         if(body.msg == "请求成功"){
-            $notify("三晋先锋","阅读🌱文章编号"+articleId, body.data)}
+            $notify("3JJXF🎉","阅读文章编号"+articleId, body.data)}
         count +=2;
     }, reason => {
         console.log(reason.error);

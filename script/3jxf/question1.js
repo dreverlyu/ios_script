@@ -17,6 +17,7 @@ const headers = {
 const request = {
     url: url,
     headers: headers,
+    method: "post",
     body: body
 };
 
@@ -24,8 +25,8 @@ $task.fetch(request).then(response => {
         console.log(response.body)
         var body = JSON.parse(response.body);
         if(body.message == "请求成功"){
-            $notify("三晋先锋","我要答题成功", "目前排名"+body.bestRank)}
-        count +=2;
+            $notify("3JXF","我要答题success🎉", "目前排名"+body.data.bestRank)}
+ 
     }, reason => {
         console.log(reason.error);
     });
