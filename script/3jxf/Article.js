@@ -11,7 +11,7 @@
 
 const appEndTime = parseInt(new Date().getTime()/1000);
 const appStartTime = appEndTime -38 ;
-const articleId = 1836000 + Math.floor(Math.random()*500+1);
+const articleId = 1772000 + Math.floor(Math.random()*100+1);
 const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=1&time=38&articleId='+articleId.toString()+'&appStartTime='+appStartTime.toString();
 const method = 'POST';
 const headers = {
