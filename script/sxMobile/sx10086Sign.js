@@ -21,7 +21,7 @@ sign()
 
 function loginApp(cb) {
     console.log('tokenUrlVal'+tokenUrlVal,'header'+tokenHeaderVal)
-    const url = { url: tokenUrlVal, headers: JSON.parse(tokenHeaderVal), body:JSON.stringify({'phoneNo': '18215112070'})}
+    const url = { url: tokenUrlVal, headers: JSON.parse(tokenHeaderVal), body:JSON.stringify({'phoneNo':'18215112070'})}
     glory.post(url, (error, response, data) => {
         const respCookie = response.headers['Set-Cookie']
         console.log('login respCookie:'+respCookie)
