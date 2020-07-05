@@ -3,7 +3,7 @@
  *@Date 2020/5/1  上午 10:36
  *@Describe github.com/dreverlyu
  *
- * 山西移动和生活签到
+ * 山西移动和生活app 签到已签到天数，每日提醒
  */
 function sign_heLife() {
     let cookieVal = $prefs.valueForKey('glory_cookie_HE10086');
@@ -30,7 +30,7 @@ function sign_heLife() {
         var body = JSON.parse(response.body);
         console.log(response.body);
         if (body.retMsg == "OK" && body.retCode == "0000") {
-            $notify("山西移动和生活🎉", "目前签到天数=" + body.data.signCount,"今日签到情况=" + body.data.todayFlag);
+            $notify("山西移动和生活已签到天数"+ body.data.signCount, "今日签到情况=" + body.data.todayFlag, "点击通知跳转签到页面🎉");
         } 
         else {
             $notify("山西移动和生活", "查询签到天数失败",`${body.retMsg}`);

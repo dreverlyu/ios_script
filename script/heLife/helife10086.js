@@ -3,7 +3,7 @@
  *@Date 2020/5/1  上午 10:36
  *@Describe github.com/dreverlyu
  *
- * 山西移动和生活签到
+ * 山西移动和生活签到，访问我的，每日签到获取签到cookie
  */
 function sign_heLife() {
     let cookieVal = $prefs.valueForKey('glory_cookie_HE10086');
