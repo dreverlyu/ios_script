@@ -7,6 +7,7 @@
  */
 loginApp();
 sign_heLife();
+const glory = init()
 var cookieVal = $prefs.valueForKey('glory_cookie_HE10086');
 function loginApp(){
     var loginUrl = {
