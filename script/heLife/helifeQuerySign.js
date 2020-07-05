@@ -30,7 +30,7 @@ function sign_heLife() {
         var body = JSON.parse(response.body);
         console.log(response.body);
         if (body.retMsg == "OK" && body.retCode == "0000") {
-            $notify("山西移动和生活🎉", "目前签到天数="+body.data.signCount,"今日签到情况="+body.data.todyFlag);
+            $notify("山西移动和生活🎉", "目前签到天数="+body.data.signCount.toString(),"今日签到情况="+body.data.todyFlag.toString());
         } 
         else {
             $notify("山西移动和生活", "查询签到天数失败",`${body.retMsg}`);
