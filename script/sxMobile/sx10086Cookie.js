@@ -14,16 +14,16 @@
  * 山西移动和生活获取cookie,访问主页即可,因为双重登录，需验证token
  */
 const cookieName = 'sx10086Cookie'
-const sxTokenUrlKey = 'glory_tokenUrl_10086'
-const sxTokenHeaderKey = 'glory_tokenHeader_10086'
-const sxSignUrlKey = 'glory_signUrl_10086'
-const sxSgnHeaderKey = 'glory_signHeader_10086'
+const sxTokenUrlKey = 'glory_tokenUrl_heLife'
+const sxTokenHeaderKey = 'glory_tokenHeader_heLife'
+const sxSignUrlKey = 'glory_signUrl_heLife'
+const sxSgnHeaderKey = 'glory_signHeader_heLife'
 
 const glory = init()
 
 const reqUrl = "http://he.sx.chinamobile.com/h/rest/v1/sign/process"
 const reqRef = $request.headers.Referer
-if ($request && $request.method != 'OPTIONS' && reqUrl.indexOf('/h/rest/v1/l/a') >= 0) {
+if ($request && $request.method != 'OPTIONS' && reqUrl.indexOf('h/rest/v1/l/a') >= 0) {
   const tokenUrlVal = reqUrl
   const tokenHeaderVal = JSON.stringify($request.headers)
   if (tokenUrlVal) glory.setdata(tokenUrlVal, sxTokenUrlKey)

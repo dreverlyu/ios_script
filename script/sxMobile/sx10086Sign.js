@@ -6,10 +6,10 @@
  * 登录加签到
  */
 const cookieName = 'sx10086Cookie'
-const sxTokenUrlKey = 'glory_tokenUrl_10086'
-const sxTokenHeaderKey = 'glory_tokenHeader_10086'
-const sxSignUrlKey = 'glory_signUrl_10086'
-const sxSgnHeaderKey = 'glory_signHeader_10086'
+const sxTokenUrlKey = 'glory_tokenUrl_heLife'
+const sxTokenHeaderKey = 'glory_tokenHeader_heLife'
+const sxSignUrlKey = 'glory_signUrl_heLife'
+const sxSgnHeaderKey = 'glory_signHeader_heLife'
 const glory = init()
 const tokenUrlVal = glory.getdata(sxTokenUrlKey)
 const tokenHeaderVal = glory.getdata(sxTokenHeaderKey)
@@ -30,7 +30,7 @@ function loginApp(cb) {
             const signHeaderObj = JSON.parse(signHeaderVal)
             let signCookie = signHeaderObj['Cookie']
             console.log('登录cookie==>'+signCookie)
-            signCookie = signCookie.replace(/jsession_id_4_boss=([^;]*)/,respCookie.match(/jsession_id_4_boss=([^;]*)/))
+            signCookie = signCookie.replace(/jsession_id_4_boss=[^;]*/,respCookie.match(/jsession_id_4_boss=[^;]*/))
             signHeaderObj['Cookie'] = signCookie
             signHeaderVal = JSON.stringify(signHeaderObj)
         }
