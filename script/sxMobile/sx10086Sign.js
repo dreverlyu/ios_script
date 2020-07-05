@@ -21,7 +21,7 @@ sign()
 
 function loginApp(cb) {
     console.log('tokenUrlVal'+tokenUrlVal,'header'+tokenHeaderVal)
-    const url = { url: tokenUrlVal, headers: JSON.parse(tokenHeaderVal), body:JSON.stringify({'appId': '116'})}
+    const url = { url: tokenUrlVal, headers: JSON.parse(tokenHeaderVal), body:JSON.stringify({'phoneNo': '18215112070'})}
     glory.post(url, (error, response, data) => {
         const respCookie = response.headers['Set-Cookie']
         console.log('login respCookie:'+respCookie)
@@ -30,7 +30,7 @@ function loginApp(cb) {
             const signHeaderObj = JSON.parse(signHeaderVal)
             let signCookie = signHeaderObj['Cookie']
             console.log('登录cookie==>'+signCookie)
-            signCookie = signCookie.concat(/jsession_id_4_boss=([^;]*)/)
+            signCookie = signCookie.replace(/jsession_id_4_boss=([^;]*)/,respCookie.match(/jsession_id_4_boss=([^;]*)/))
             signHeaderObj['Cookie'] = signCookie
             signHeaderVal = JSON.stringify(signHeaderObj)
         }

@@ -21,20 +21,21 @@ const sxSgnHeaderKey = 'glory_signHeader_10086'
 
 const glory = init()
 
-const reqUrl = $request.url
+const reqUrl = "http://he.sx.chinamobile.com/h/rest/v1/sign/process"
 const reqRef = $request.headers.Referer
-if ($request && $request.method != 'OPTIONS' && reqUrl.indexOf('h/v1/businessTree/adInfoQry') >= 0) {
+if ($request && $request.method != 'OPTIONS' && reqUrl.indexOf('/h/rest/v1/l/a') >= 0) {
   const tokenUrlVal = reqUrl
   const tokenHeaderVal = JSON.stringify($request.headers)
   if (tokenUrlVal) glory.setdata(tokenUrlVal, sxTokenUrlKey)
   if (tokenHeaderVal) glory.setdata(tokenHeaderVal, sxTokenHeaderKey)
   title = glory.msg(cookieName, `获取刷新链接: 成功`, ``)
-} else if ($request && $request.method != 'OPTIONS' && reqUrl.indexOf('rest/v1/sign/') >= 0) {
+
   const signUrlVal = reqUrl
   const signHeaderVal = JSON.stringify($request.headers)
   if (signUrlVal) glory.setdata(signUrlVal, sxSignUrlKey)
   if (signHeaderVal) glory.setdata(signHeaderVal, sxSgnHeaderKey)
   title = glory.msg(cookieName, `获取Cookie: 成功`, ``)
+
 }
 
 
