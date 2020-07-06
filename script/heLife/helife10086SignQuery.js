@@ -60,7 +60,7 @@ function sign_heLife() {
                 "Referer": `http://he.sx.chinamobile.com/h/index.html`,
                 "Accept-Language": `zh-cn`,
                 "Accept-Encoding": `gzip, deflate`,
-                Cookie: cookieVal
+                Cookie: signCookieVal
             },
             body: JSON.stringify({'channel': 'heapp'})
         };
