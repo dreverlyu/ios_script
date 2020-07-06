@@ -45,12 +45,10 @@ $task.fetch(myRequest).then(response => {
             signHeaderVal = JSON.stringify(signHeaderObj)}
             console.log("--------"+signCookie)
             sleep(200)
-            sign_heLife();
-            query_heLife();
 }, reason => {
     console.log(reason.error);
 });
-
+sign_heLife();query_heLife();
 }
 
 function sign_heLife() {
