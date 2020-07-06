@@ -44,7 +44,6 @@ $task.fetch(myRequest).then(response => {
             signHeaderObj['Cookie'] = signCookie
             signHeaderVal = JSON.stringify(signHeaderObj)}
             console.log("--------"+signCookie)
-            sleep(200)
 }, reason => {
     console.log(reason.error);
 });
