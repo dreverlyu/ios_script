@@ -33,13 +33,13 @@ function loginApp() {
     };
 
     glory.post(loginRequest, (error, response, data) => {
-        const respCookie = response.headers['Set-Cookie'];
-        console.log('login respCookie:' + respCookie);
+        const respCookie = JSON.stringify(response.headers['Set-Cookie']);
+        console.log('respCookie:' + respCookie);
         if (respCookie && respCookie.indexOf('jsession_id_4_boss=') >= 0) {
-            let signCookie = JSON.parse(signCookieVal);
+            let signCookie = JSON.stringify(signCookieVal);
             console.log('固有登录cookie==>' + signCookie);
             signCookie = signCookie.replace(/jsession_id_4_boss=[^;]*/, respCookie.match(/jsession_id_4_boss=[^;]*/));
-            signCookieVal = JSON.stringify(signCookie);
+            signCookieVal = JSON.parse(signCookie);
         }
         console.log("生成登录cookie" + signCookieVal)
         sign_heLife();
