@@ -52,8 +52,6 @@ query_heLife();
 }
 
 function sign_heLife() {
-    //let cookieVal = $prefs.valueForKey('glory_cookie_HE10086');
-    //if (!cookieVal) { $notify("山西移动和生活", "无法签到", "请先获取cookie");}
     var url = {
         url: "http://he.sx.chinamobile.com/h/rest/v1/sign/process",
         method: 'POST',
@@ -115,9 +113,6 @@ function query_heLife() {
         $notify("山西移动和生活", "查询签到天数失败", `${reason.error}`);
     })
 }
-
-
-
 
 function init() {
     isSurge = () => {
