@@ -32,7 +32,7 @@ function loginApp(cb) {
         body: body
     };
 
-    glory.post(url, (error, response, data) => {
+    glory.post(loginRequest, (error, response, data) => {
         const respCookie = response.headers['Set-Cookie'];
         console.log('login respCookie:' + respCookie);
         if (respCookie && respCookie.indexOf('jsession_id_4_boss=') >= 0) {
@@ -44,7 +44,6 @@ function loginApp(cb) {
         console.log("生成登录cookie" + signCookieVal)
         cb();
     });
-    query_heLife();
 }
 
 function sign_heLife() {
