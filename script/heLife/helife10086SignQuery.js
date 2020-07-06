@@ -7,8 +7,8 @@
  */
 const glory = init();
 var signCookieVal = $prefs.valueForKey('glory_cookie_HE10086');
-sign_heLife();
-function loginApp(cb) {
+loginApp();
+function loginApp() {
     const url = `http://he.sx.chinamobile.com/h/rest/v1/l/a`;
     const method = `POST`;
     const headers = {
@@ -42,12 +42,11 @@ function loginApp(cb) {
             signCookieVal = JSON.stringify(signCookie);
         }
         console.log("生成登录cookie" + signCookieVal)
-        cb();
+        sign_heLife();
     });
 }
 
 function sign_heLife() {
-    loginApp(()=>{
         var url = {
             url: "http://he.sx.chinamobile.com/h/rest/v1/sign/process",
             method: 'POST',
@@ -74,12 +73,10 @@ function sign_heLife() {
             } else {
                 $notify("山西移动和生活", "签到失败", `${body.retMsg}`);
             }
+            query_heLife();
         }, reason => {
             $notify("山西移动和生活", "签到失败", `${reason.error}`);
         });
-        glory.done()
-    });
-    query_heLife();
 }
 
 function query_heLife() {
