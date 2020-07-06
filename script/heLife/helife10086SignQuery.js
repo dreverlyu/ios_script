@@ -47,6 +47,7 @@ $task.fetch(myRequest).then(response => {
 }, reason => {
     console.log(reason.error);
 });
+//签到
 sign_heLife();query_heLife();
 }
 
