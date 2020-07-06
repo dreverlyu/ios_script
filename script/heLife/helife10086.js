@@ -2,8 +2,8 @@
  *@Author summer
  *@Date 2020/5/1  上午 10:36
  *@Describe github.com/dreverlyu
- *
- * 山西移动和生活签到，访问我的，每日签到获取签到cookie
+ * 
+ * 山西移动和生活签到，访问我的，每日签到获取签到  coccocookie 因获取时效太短已废弃
  */
 loginApp();
 sign_heLife();
