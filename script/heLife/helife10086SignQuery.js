@@ -5,50 +5,45 @@
  * 实现登录+签到+已签到天数查询
  * 仅自用
  */
-loginApp();
 const glory = init();
-var cookieVal = $prefs.valueForKey('glory_cookie_HE10086');
-function loginApp(){
+var signCookieVal = $prefs.valueForKey('glory_cookie_HE10086');
+loginApp();
+function loginApp() {
     const url = `http://he.sx.chinamobile.com/h/rest/v1/l/a`;
-const method = `POST`;
-const headers = {
-'Accept' : `application/json, text/plain, */*`,
-'Origin' : `http://he.sx.chinamobile.com`,
-'Connection' : `keep-alive`,
-'Cookie' : `client_cookie=001; mobile=49490-45168-6188-9053; SI_FPC=id=15960a0e19e54bdf9ec1590424934109; jsession_id_4_boss=l569E8078C181B1EE437FA6EF45AC3286-1; route=be21cc1534edb31591867a9969f50df4; WT_FPC=id=2c099b1a252ce6e493b1590424905071:lv=1593944466889:ss=1593944465481; SI_SS=1590424934109`,
-'Content-Type' : `application/json;charset=utf-8`,
-'Host' : `he.sx.chinamobile.com`,
-'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 oncon(iphone;13.3.1;com.MobileCommunicationSX.iHeYueSX;1.0.4) he`,
-'Referer' : `http://he.sx.chinamobile.com/h/index.html`,
-'Accept-Language' : `zh-cn`,
-'Accept-Encoding' : `gzip, deflate`
-};
-const body = `{"phoneNo":"18215112070"}`;
+    const method = `POST`;
+    const headers = {
+        'Accept': `application/json, text/plain, */*`,
+        'Origin': `http://he.sx.chinamobile.com`,
+        'Connection': `keep-alive`,
+        'Cookie': `client_cookie=001; mobile=49490-45168-6188-9053; SI_FPC=id=15960a0e19e54bdf9ec1590424934109; jsession_id_4_boss=l569E8078C181B1EE437FA6EF45AC3286-1; route=be21cc1534edb31591867a9969f50df4; WT_FPC=id=2c099b1a252ce6e493b1590424905071:lv=1593944466889:ss=1593944465481; SI_SS=1590424934109`,
+        'Content-Type': `application/json;charset=utf-8`,
+        'Host': `he.sx.chinamobile.com`,
+        'User-Agent': `Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 oncon(iphone;13.3.1;com.MobileCommunicationSX.iHeYueSX;1.0.4) he`,
+        'Referer': `http://he.sx.chinamobile.com/h/index.html`,
+        'Accept-Language': `zh-cn`,
+        'Accept-Encoding': `gzip, deflate`
+    };
+    const body = `{"phoneNo":"18215112070"}`;
 
-const myRequest = {
-    url: url,
-    method: method,
-    headers: headers,
-    body: body
-};
+    const loginRequest = {
+        url: url,
+        method: method,
+        headers: headers,
+        body: body
+    };
 
-$task.fetch(myRequest).then(response => {
-    const respCookie = response.headers['Set-Cookie']
-        console.log('login respCookie:'+respCookie)
-        
+    glory.post(loginRequest, (error, response, data) => {
+        const respCookie = JSON.stringify(response.headers['Set-Cookie']);
+        console.log('respCookie:' + respCookie);
         if (respCookie && respCookie.indexOf('jsession_id_4_boss=') >= 0) {
-            const signHeaderObj = JSON.parse(signHeaderVal)
-            let signCookie = signHeaderObj['Cookie']
-            console.log('登录cookie==>'+signCookie)
-            signCookie = signCookie.replace(/jsession_id_4_boss=[^;]*/,respCookie.match(/jsession_id_4_boss=[^;]*/))
-            signHeaderObj['Cookie'] = signCookie
-            signHeaderVal = JSON.stringify(signHeaderObj)}
-            console.log("--------"+signCookie)
-}, reason => {
-    console.log(reason.error);
-});
-//签到
-sign_heLife();query_heLife();
+            let signCookie = JSON.stringify(signCookieVal);
+            console.log('固有登录cookie==>' + signCookie);
+            signCookie = signCookie.replace(/jsession_id_4_boss=[^;]*/, respCookie.match(/jsession_id_4_boss=[^;]*/));
+            signCookieVal = JSON.parse(signCookie);
+        }
+        console.log("生成登录cookie" + signCookieVal)
+        sign_heLife();
+    });
 }
 
 function sign_heLife() {
@@ -95,7 +90,7 @@ function query_heLife() {
             "Referer": `http://he.sx.chinamobile.com/h/index.html`,
             "Accept-Language": `zh-cn`,
             "Accept-Encoding": `gzip, deflate`,
-            Cookie: cookieVal
+            Cookie: signCookieVal
         },
         body: JSON.stringify({'channel': 'heapp'})
     };
@@ -155,5 +150,5 @@ function init() {
     done = (value = {}) => {
         $done(value)
     }
-    return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, done }
+    return {isSurge, isQuanX, msg, log, getdata, setdata, get, post, done}
 }
