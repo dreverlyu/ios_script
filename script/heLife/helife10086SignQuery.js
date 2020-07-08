@@ -2,7 +2,7 @@
  *@Author summer
  *@Date 2020/7/6  上午 10:36
  *@Describe github.com/dreverlyu
- * 实现山西移动登录+签到+已签到天数查询
+ * 实现山西移动和生活登录+签到+已签到天数查询
  * 仅自用
  */
 const glory = init();
