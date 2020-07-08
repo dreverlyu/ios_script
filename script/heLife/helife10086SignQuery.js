@@ -75,6 +75,8 @@ function sign_heLife() {
         }
     }, reason => {
         $notify("山西移动和生活", "签到失败", `${reason.error}`);
+        //查询签到天数
+        query_heLife();
     })
 }
 
