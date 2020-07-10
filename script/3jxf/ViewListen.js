@@ -11,8 +11,7 @@
 
 const appName ='3JXF'
 const glory = init()
-const taskHeaderKey = 'glory_header_3jxf'
-const taskHeaderVal = glory.getdata(taskHeaderKey);
+const viewListenHeaderVal = $prefs.valueForKey('glory_header_3jxf');
 const method = 'POST';
 const endTime = parseInt(new Date().getTime()/1000);
 const startTime = endTime - 652 ;
@@ -21,16 +20,7 @@ const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=2&ti
 const myRequest = {
     url: url,
     method: method,
-    headers:  {
-        'Accept' : '*/*',
-        'Accept-Encoding' : 'gzip, deflate',
-        'Connection' : 'keep-alive',
-        'Content-Type' : 'application/json',
-        'Host' : '221.204.170.88:8184',
-        'User-Agent' : 'san jin xian feng/3.2.7 (iPhone; iOS 13.3.1; Scale/3.00)',
-        'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmVUaW1lIjoxNTkwMTQzMjc3OTU3LCJ1c2VyQ29kZSI6MjUzNjcxMywiYWNjb3VudCI6IjE4MjM1MTUyMDcwIiwiYWNjb3VudFR5cGUiOjF9.a1u7bis0y0TIwktBsrLNIAlMZInWTgN4tcgxl6oj_uY',
-        'Accept-Language' : 'zh-Hans-CN;q=1, zh-Hant-HK;q=0.9, en-CN;q=0.8'
-    },
+    headers: viewListenHeaderVal,
     body: JSON.stringify({"appEndTime":endTime.toString(),"appStartTime":startTime.toString(),"type": "2","time": "652","articleId":"14"})
 };
 

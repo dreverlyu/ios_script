@@ -5,6 +5,7 @@
  */
 const appName = "3JXF"
 const glory = init()
+const loveHeaderVal = $prefs.valueForKey('glory_header_3jxf');
 const loveUrl = 'http://221.204.170.88:8184/app/love';
 const collectUrl = 'http://221.204.170.88:8184/app/collect';
 const method = 'POST';
@@ -12,16 +13,6 @@ const method = 'POST';
 
 //const loveHeaderVal = "{'Content-Type' : 'application/json'"+ tempHeaderVal.substring(1)
 
-const loveHeaderVal =  {
-    'Accept' : '*/*',
-    'Accept-Encoding' : 'gzip, deflate',
-    'Connection' : 'keep-alive',
-    'Content-Type' : 'application/json',
-    'Host' : '221.204.170.88:8184',
-    'User-Agent' : 'san jin xian feng/3.2.7 (iPhone; iOS 13.3.1; Scale/3.00)',
-    'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmVUaW1lIjoxNTkwMTQzMjc3OTU3LCJ1c2VyQ29kZSI6MjUzNjcxMywiYWNjb3VudCI6IjE4MjM1MTUyMDcwIiwiYWNjb3VudFR5cGUiOjF9.a1u7bis0y0TIwktBsrLNIAlMZInWTgN4tcgxl6oj_uY',
-    'Accept-Language' : 'zh-Hans-CN;q=1, zh-Hant-HK;q=0.9, en-CN;q=0.8'
-};
 const defaultUniqueId = 6062198
 const uniqueId = defaultUniqueId + Math.floor(Math.random()*1000+1);
 const loveBody = JSON.stringify({"type":"1","userId":"2536713","uniqueId":uniqueId.toString()});

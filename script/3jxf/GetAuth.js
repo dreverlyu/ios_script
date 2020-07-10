@@ -10,27 +10,34 @@ const loveHeaderKey = 'glory_header_3jLove'
 const answerHeaderKey = 'glory_header_answer'
 const glory = init()
 const requestUrl =  $request.url
-if (requestUrl.indexOf('/app/personalCenter/articleTime') >= 0) {
-    const taskHeaderVal = JSON.stringify($request.headers)
+
+const taskHeaderVal = JSON.stringify($request.headers)
     if (taskHeaderVal) {
         glory.setdata(taskHeaderVal, taskHeaderKey)
         glory.msg(appName, `获取request header: 成功`, `🎉`)
     }
-}
-if (requestUrl.indexOf('/app/love') >= 0 || requestUrl.indexOf('/app/collect') >= 0) {
-    const loveHeaderVal = JSON.stringify($request.headers)
-    if (loveHeaderVal) {
-        glory.setdata(loveHeaderVal, loveHeaderKey)
-        glory.msg(appName, `获取点赞收藏header: 成功`, `🎉`)
-    }
-}
-if (requestUrl.indexOf('/app/question') >= 0 ) {
-    const answerHeaderVal = JSON.stringify($request.headers)
-    if (answerHeaderVal) {
-        glory.setdata(answerHeaderVal, answerHeaderKey)
-        glory.msg(appName, `获取答题header: 成功`, `🎉`)
-    }
-}
+
+// if (requestUrl.indexOf('/app/personalCenter/articleTime') >= 0) {
+//     const taskHeaderVal = JSON.stringify($request.headers)
+//     if (taskHeaderVal) {
+//         glory.setdata(taskHeaderVal, taskHeaderKey)
+//         glory.msg(appName, `获取request header: 成功`, `🎉`)
+//     }
+// }
+// if (requestUrl.indexOf('/app/love') >= 0 || requestUrl.indexOf('/app/collect') >= 0) {
+//     const loveHeaderVal = JSON.stringify($request.headers)
+//     if (loveHeaderVal) {
+//         glory.setdata(loveHeaderVal, loveHeaderKey)
+//         glory.msg(appName, `获取点赞收藏header: 成功`, `🎉`)
+//     }
+// }
+// if (requestUrl.indexOf('/app/question') >= 0 ) {
+//     const answerHeaderVal = JSON.stringify($request.headers)
+//     if (answerHeaderVal) {
+//         glory.setdata(answerHeaderVal, answerHeaderKey)
+//         glory.msg(appName, `获取答题header: 成功`, `🎉`)
+//     }
+// }
 function init() {
     isSurge = () => {
         return undefined === this.$httpClient ? false : true
