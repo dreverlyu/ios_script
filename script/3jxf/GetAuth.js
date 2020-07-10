@@ -10,7 +10,7 @@ const loveHeaderKey = 'glory_header_3jLove'
 const answerHeaderKey = 'glory_header_answer'
 const glory = init()
 const requestUrl =  $request.url
-if (requestUrl.indexOf('/app/home/totayScore') >= 0) {
+if (requestUrl.indexOf('/app/personalCenter/articleTime') >= 0) {
     const taskHeaderVal = JSON.stringify($request.headers)
     if (taskHeaderVal) {
         glory.setdata(taskHeaderVal, taskHeaderKey)

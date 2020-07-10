@@ -8,28 +8,18 @@
  * @fileoverview  Template to compose HTTP reqeuest.
  *
  */
-
+var aritcleHeaderVal = $prefs.valueForKey('glory_header_3jxf');
 const appEndTime = parseInt(new Date().getTime()/1000);
 const appStartTime = appEndTime -38 ;
 const articleId = 1772000 + Math.floor(Math.random()*100+1);
 const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=1&time=38&articleId='+articleId.toString()+'&appStartTime='+appStartTime.toString();
 const method = 'POST';
-const headers = {
-    'Accept' : '*/*',
-    'Accept-Encoding' : 'gzip, deflate',
-    'Connection' : 'keep-alive',
-    'Content-Type' : 'application/json',
-    'Host' : '221.204.170.88:8184',
-    'User-Agent' : 'san jin xian feng/3.2.7 (iPhone; iOS 13.3.1; Scale/3.00)',
-    'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmVUaW1lIjoxNTkwMTQzMjc3OTU3LCJ1c2VyQ29kZSI6MjUzNjcxMywiYWNjb3VudCI6IjE4MjM1MTUyMDcwIiwiYWNjb3VudFR5cGUiOjF9.a1u7bis0y0TIwktBsrLNIAlMZInWTgN4tcgxl6oj_uY',
-    'Accept-Language' : 'zh-Hans-CN;q=1, zh-Hant-HK;q=0.9, en-CN;q=0.8'
-};
 const body = JSON.stringify({"appEndTime":appEndTime.toString(),"appStartTime":appStartTime.toString(),"type":"1","time":"38","articleId":articleId.toString()});
 
-const myRequest = {
+const articleRequest = {
     url: url,
     method: method,
-    headers: headers,
+    headers: aritcleHeaderVal,
     body: body
 };
 
@@ -37,7 +27,7 @@ const myRequest = {
 
 //每两秒执行一次，阅读两次文章后就退出
 // var readTask = setInterval(() =>{
-    $task.fetch(myRequest).then(response => {
+    $task.fetch(articleRequest).then(response => {
         console.log(response.body)
         var body = JSON.parse(response.body);
         if(body.msg == "请求成功"){
