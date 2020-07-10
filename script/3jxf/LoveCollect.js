@@ -20,13 +20,13 @@ const collectBody = JSON.stringify({"type":"1","userId":"2536713","uniqueId":uni
 const loveRequest = {
     url: loveUrl,
     method: method,
-    headers: loveHeaderVal,
+    headers: JSON.stringify(loveHeaderVal),
     body: loveBody
 };
 const collectRequest = {
     url: collectUrl,
     method: method,
-    headers: loveHeaderVal,
+    headers: JSON.stringify(loveHeaderVal),
     body: collectBody
 };
 $task.fetch(loveRequest).then(response => {

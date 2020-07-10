@@ -20,7 +20,7 @@ const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=2&ti
 const myRequest = {
     url: url,
     method: method,
-    headers: viewListenHeaderVal,
+    headers: JSON.stringify(viewListenHeaderVal),
     body: JSON.stringify({"appEndTime":endTime.toString(),"appStartTime":startTime.toString(),"type": "2","time": "652","articleId":"14"})
 };
 

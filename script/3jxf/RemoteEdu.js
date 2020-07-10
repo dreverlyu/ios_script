@@ -20,7 +20,7 @@ const startTime = endTime - 1808;
 const myRequest = {
     url: url,
     method: method,
-    headers: remoteEduHeaderVal,
+    headers: JSON.stringify(remoteEduHeaderVal),
     body: JSON.stringify({"watchTime": "1808","appStartTime":startTime.toString(),"type":"1","userId":"2536713","appEndTime":endTime.toString()})
 };
 

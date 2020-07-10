@@ -5,7 +5,7 @@ const body = "{\"userId\":\"2536713\",\"method\":4,\"totalGrade\":\"90\",\"list\
 const questionSubjectHeaderVal = $prefs.valueForKey('glory_header_3jxf');
 const request = {
     url: url,
-    headers: questionSubjectHeaderVal,
+    headers: JSON.stringify(questionSubjectHeaderVal),
     method: "post",
     body: body
 };

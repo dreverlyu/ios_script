@@ -5,7 +5,7 @@ const questionHeaderVal = $prefs.valueForKey('glory_header_3jxf');
 
 const request = {
     url: url,
-    headers: questionHeaderVal,
+    headers: JSON.stringify(questionHeaderVal),
     method: "post",
     body: body
 };
