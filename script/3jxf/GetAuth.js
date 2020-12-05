@@ -9,8 +9,10 @@ const taskHeaderKey = 'glory_header_3jxf'
 const loveHeaderKey = 'glory_header_3jLove'
 const answerHeaderKey = 'glory_header_answer'
 const glory = init()
+$notify("3JJXF🎉","进入获取请求头步骤", "ongoing")
 const requestUrl =  $request.url
-glory.msg(appName, requestUrl, `🎉`)
+console.log("请求url==="+requestUrl)
+console.log("请求体===" + $request)
 const taskHeaderVal = JSON.stringify($request.headers)
     if (taskHeaderVal) {
         glory.setdata(taskHeaderVal, taskHeaderKey)
