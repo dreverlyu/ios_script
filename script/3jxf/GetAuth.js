@@ -3,7 +3,7 @@
  *@Date 2020/5/21  下午 08:13
  *@Describe github.com/dreverlyu
  */
-$notify("3JJXF🎉","进入获取请求头步骤", "ongoing")
+console.log("3JXF进入获取请求头步骤")
 const appName = '3JXF'
 const taskHeaderKey = 'glory_header_3jxf'
 const loveHeaderKey = 'glory_header_3jLove'
