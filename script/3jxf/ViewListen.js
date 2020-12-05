@@ -1,27 +1,21 @@
 /**
  *@Author Drever
- *@Date 2020/5/21  下午 08:10
+ *@Date 2020/12/05  下午 08:10
  *@Describe github.com/dreverlyu
  */
-
-/**
- * @fileoverview  Template to compose HTTP reqeuest.
- *
- */
-
 const appName ='3JXF'
 const glory = init()
 const viewListenHeaderVal = $prefs.valueForKey('glory_header_3jxf');
 const method = 'POST';
-const endTime = parseInt(new Date().getTime()/1000);
-const startTime = endTime - 652 ;
+// const endTime = parseInt(new Date().getTime()/1000);
+const startTime = new Date().getTime() - 600*1000 ;
 const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=2&time=652&articleId=14&appStartTime='+startTime.toString();
 
 const myRequest = {
     url: url,
     method: method,
     headers: JSON.stringify(viewListenHeaderVal),
-    body: JSON.stringify({"appEndTime":endTime.toString(),"appStartTime":startTime.toString(),"type": "2","time": "652","articleId":"14"})
+    body: JSON.stringify({"time": "600","ifScore":"1","appStartTime":startTime.toString(),"type": "2","userId":"2536713","articleId":"14"})
 };
 
 

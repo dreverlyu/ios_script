@@ -1,6 +1,6 @@
 /**
  *@Author Drever
- *@Date 2020/5/21  下午 11:11
+ *@Date 2020/12/05  下午 11:11
  *@Describe github.com/dreverlyu
  */
 
@@ -9,12 +9,13 @@
  *
  */
 var aritcleHeaderVal = $prefs.valueForKey('glory_header_3jxf');
-const appEndTime = parseInt(new Date().getTime()/1000);
-const appStartTime = appEndTime -38 ;
-const articleId = 1772000 + Math.floor(Math.random()*100+1);
-const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=1&time=38&articleId='+articleId.toString()+'&appStartTime='+appStartTime.toString();
+// const appEndTime = parseInt(new Date().getTime()/1000);
+const appStartTime = new Date().getTime() -38*1000 ;
+const articleId = 673000 + Math.floor(Math.random()*1000+1);
+// const url = 'http://221.204.170.88:8184/app/personalCenter/articleTime?type=1&time=38&articleId='+articleId.toString()+'&appStartTime='+appStartTime.toString();
+const url = 'http://221.204.170.88:8184/app/businessScore';
 const method = 'POST';
-const body = JSON.stringify({"appEndTime":appEndTime.toString(),"appStartTime":appStartTime.toString(),"type":"1","time":"38","articleId":articleId.toString()});
+const body = JSON.stringify({"appStartTime":appStartTime.toString(),"ifScore":"1","time":"38","userId":"2536713","articleId":articleId.toString()});
 
 const articleRequest = {
     url: url,
@@ -32,7 +33,7 @@ const articleRequest = {
         var body = JSON.parse(response.body);
         if(body.msg == "请求成功"){
             $notify("3JJXF🎉","阅读文章编号"+articleId, body.data)}
-        count +=2;
+        // count +=2;
     }, reason => {
         console.log(reason.error);
     });
