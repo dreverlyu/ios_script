@@ -30,8 +30,8 @@ const myRequest = {
 };
 
 $task.fetch(myRequest).then(response => {
-    $notify("远程教育",  response.body.toStribg().message + ' 🎉 ', response.body.toString().success)
     console.log(response.statusCode + "\n\n" + response.body);
+    $notify("远程教育",  response.body.toString().message + ' 🎉 ', response.body.toString().success);
 }, reason => {
     console.log(reason.error);
 })
