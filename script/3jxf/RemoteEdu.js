@@ -20,7 +20,7 @@ const headers = {
 };
 const endTime = parseInt(new Date().getTime()/1000);
 const startTime = endTime - 1800;
-const body = Json.stringify({"watchTime":"1800","appStartTime":startTime,"type":"3","userId":"2536713","appEndTime":endTime});
+const body = JSON.stringify({"watchTime":"1800","appStartTime":startTime,"type":"3","userId":"2536713","appEndTime":endTime});
 
 const myRequest = {
     url: url,
