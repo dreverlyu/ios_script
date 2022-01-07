@@ -23,7 +23,7 @@ function loginApp() {
         'Accept-Language': `zh-cn`,
         'Accept-Encoding': `gzip, deflate`
     };
-    const body = `{"phoneNo":"18215112070"}`;
+    const body = `{"phoneNo":"18235152070"}`;
 
     const loginRequest = {
         url: url,
@@ -48,7 +48,7 @@ function loginApp() {
 
 function sign_heLife() {
     var url = {
-        url: "http://he.sx.chinamobile.com/h/rest/v1/sign/process",
+        url: "http://he.sx.chinamobile.com/h/rest/v1/sign/sign",
         method: 'POST',
         headers: {
             "Content-Type": `application/json;charset=utf-8`,
@@ -83,7 +83,7 @@ function sign_heLife() {
 
 function query_heLife() {
     var url = {
-        url: "http://he.sx.chinamobile.com/h/rest/v1/sign/query",
+        url: "http://he.sx.chinamobile.com/h/rest/v1/sign/signQuery",
         method: 'POST',
         headers: {
             "Content-Type": `application/json;charset=utf-8`,
